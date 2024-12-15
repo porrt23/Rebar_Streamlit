@@ -2,6 +2,7 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 
 """
 # Welcome to Streamlit!
@@ -39,3 +40,11 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
         color=alt.Color("idx", legend=None, scale=alt.Scale()),
         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
     ))
+
+
+# Create a figure and plot
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3], [4, 5, 6])
+
+# Display the figure in Streamlit
+st.pyplot(fig)
