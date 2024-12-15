@@ -51,7 +51,7 @@ axs[0].set_xlabel('x')
 axs[0].set_ylabel('y')
 
 # Plot the second graph
-axs[1].plot([1, 2, 3], [4, 5, 6])
+axs[1].plot([7, 8, 9], [10, 11, 12])
 axs[1].set_title('Cosine Function')
 axs[1].set_xlabel('x')
 axs[1].set_ylabel('y')
