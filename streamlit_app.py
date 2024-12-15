@@ -42,7 +42,7 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
     ))
 
 # Create a figure and a set of subplots
-fig, axs = plt.subplots(1, 4, figsize=(10, 5))
+fig, axs = plt.subplots(1, 4, figsize=(28, 7))
 
 # Plot the first graph
 i = 0
