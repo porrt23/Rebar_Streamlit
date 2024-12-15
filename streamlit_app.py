@@ -42,19 +42,33 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
     ))
 
 # Create a figure and a set of subplots
-fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+fig, axs = plt.subplots(1, 4, figsize=(10, 5))
 
 # Plot the first graph
-axs[0].plot([1, 2, 3], [4, 5, 6])
-axs[0].set_title('Sine Function')
-axs[0].set_xlabel('x')
-axs[0].set_ylabel('y')
+i = 0
+axs[i].plot([1, 2, 3], [4, 5, 6])
+axs[i].set_title('Sine Function')
+axs[i].set_xlabel('x')
+axs[i].set_ylabel('y')
 
 # Plot the second graph
-axs[1].plot([7, 8, 9], [10, 11, 12])
-axs[1].set_title('Cosine Function')
-axs[1].set_xlabel('x')
-axs[1].set_ylabel('y')
+i += 1
+axs[i].plot([7, 8, 9], [10, 11, 12])
+axs[i].set_title('Cosine Function')
+axs[i].set_xlabel('x')
+axs[i].set_ylabel('y')
+
+i += 1
+axs[i].plot([1, 2, 3], [4, 5, 6])
+axs[i].set_title('Sine Function')
+axs[i].set_xlabel('x')
+axs[i].set_ylabel('y')
+
+i += 1
+axs[i].plot([7, 8, 9], [10, 11, 12])
+axs[i].set_title('Cosine Function')
+axs[i].set_xlabel('x')
+axs[i].set_ylabel('y')
 
 # Display the figure in Streamlit
 st.pyplot(fig)
