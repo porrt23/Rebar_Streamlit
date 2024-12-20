@@ -276,12 +276,14 @@ if uploaded_files:
         yp = -float(row['BottomPanelHeight'])
         hp = -yp + float(row['ParapetHeight']) + float(row['PanelHeight'])
         panel_out = Rectangle((xp,yp), wp, hp, edgecolor = 'black', fill=False, lw=5)
-        
+        # Place the legend between the title and the plot
+        verts.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05), ncol=2, fancybox=True, shadow=True)
         tx = panel_out.get_x() + panel_out.get_width()
         ty = panel_out.get_y() + panel_out.get_height()
         fig.suptitle(f"{row['PanelType']}, {row['Tfc']}", fontsize=24)
         verts.set_title(f"Vertical Rebar (L={tx} ft, T/wall={ty} ft)", fontsize=14)
         horzs.set_title("Horizontal Rebar", fontsize=14)
+        plt.tight_layout()
         st.pyplot(fig)
 
     
