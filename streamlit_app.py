@@ -261,8 +261,6 @@ if uploaded_files:
     selected_columns = ['PanelType', 'PanelThickness', 'PanelMaterial']
 
     for index, row in df.iterrows():
-        # number of columns and rows
-        col = 2
 
         # Plot the graph on the appropriate subplot by splitting the subfigure into Vertical and Horizontal rebar graphs
         fig, (verts, horzs) = plt.subplots(1, 2, figsize=(10, 4))
@@ -271,6 +269,7 @@ if uploaded_files:
         plot_verticals(row, verts)
         plot_horizontals(row, horzs)
 
+        st.success(f'Panel plotted-')
         # Set titles
         xp = 0
         wp = float(row['PanelLength'])
