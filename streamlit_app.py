@@ -66,7 +66,7 @@ def panel_geom(pnl_data, p_fig):
 
 #%% Rebar areas
 def r_areas(rbr):
-    rbrcheck_var = 1
+    rbrcheck_var = 0
     if rbrcheck_var == 1:
         rebar_areas = {
             2: 0.05,
@@ -259,17 +259,17 @@ if uploaded_files:
     
     #Display the dataframe from reading the tup files for testing purposes
     selected_columns = ['PanelType', 'PanelThickness', 'PanelMaterial']
+    st.header('Panel Schedule')
+    st.dataframe(df[selected_columns])
 
     for index, row in df.iterrows():
 
         # Plot the graph on the appropriate subplot by splitting the subfigure into Vertical and Horizontal rebar graphs
-        fig, (verts, horzs) = plt.subplots(1, 2, figsize=(20, 16))
+        fig, (verts, horzs) = plt.subplots(1, 2, figsize=(16, 16))
 
         # Use the modules to generate the graphs for verticals and horizontals
         plot_verticals(row, verts)
         plot_horizontals(row, horzs)
-
-        st.success(f'Panel plotted-')
         # Set titles
         xp = 0
         wp = float(row['PanelLength'])
@@ -284,4 +284,4 @@ if uploaded_files:
         horzs.set_title("Horizontal Rebar", fontsize=14)
         st.pyplot(fig)
 
-    st.dataframe(df[selected_columns])
+    
