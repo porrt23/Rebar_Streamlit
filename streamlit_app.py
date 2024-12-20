@@ -263,7 +263,7 @@ if uploaded_files:
     for index, row in df.iterrows():
 
         # Plot the graph on the appropriate subplot by splitting the subfigure into Vertical and Horizontal rebar graphs
-        fig, (verts, horzs) = plt.subplots(1, 2, figsize=(10, 4))
+        fig, (verts, horzs) = plt.subplots(1, 2, figsize=(20, 16))
 
         # Use the modules to generate the graphs for verticals and horizontals
         plot_verticals(row, verts)
