@@ -67,7 +67,7 @@ def panel_geom(pnl_data, p_fig):
 #%% Rebar areas
 def r_areas(rbr):
     rbrcheck_var = 1
-    if rbrcheck_var.get() == 1:
+    if rbrcheck_var == 1:
         rebar_areas = {
             2: 0.05,
             3: 0.11,
