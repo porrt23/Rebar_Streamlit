@@ -277,11 +277,12 @@ if uploaded_files:
         panel_out = Rectangle((xp,yp), wp, hp, edgecolor = 'black', fill=False, lw=5)
         # Place the legend between the title and the plot
         legend_params = {
-            'loc': 'upper center',
+            'loc': 9,
             'bbox_to_anchor': (0.5, 1.05),
-            'ncol': 2,
+            'ncol': 4,
             'fancybox': True,
-            'shadow': True
+            'shadow': True,
+            'fontsize':10
         }
         verts.legend(**legend_params)
         horzs.legend(**legend_params)
