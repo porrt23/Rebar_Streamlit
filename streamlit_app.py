@@ -282,7 +282,6 @@ if uploaded_files:
         fig.suptitle(f"{row['PanelType']}, {row['Tfc']}", fontsize=24)
         verts.set_title(f"Vertical Rebar (L={tx} ft, T/wall={ty} ft)", fontsize=14)
         horzs.set_title("Horizontal Rebar", fontsize=14)
-        verts.plot()
-        horzs.plot()
+        st.pyplot(fig)
 
     st.dataframe(df[selected_columns])
