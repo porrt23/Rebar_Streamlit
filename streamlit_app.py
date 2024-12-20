@@ -7,7 +7,7 @@ import os
 import io
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+#from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from statistics import mean
 
 #%% Test Plot
