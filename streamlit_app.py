@@ -132,10 +132,10 @@ def plot_verticals(v_data, v_fig, l_size=10, f_size=12):
             v_fig.annotate('',xy=(x_values[int(rebar[0])+1], mean(ydata)), xytext=(x_values[int(rebar[0])], mean(ydata)), arrowprops=dict(color=line[0].get_color(),arrowstyle='|-|'))
             v_fig.annotate(line[0].get_label().replace('@','\n@'), xy=(xdata[0], mean(ydata)), rotation=90, fontsize = f_size, ha='center', va='center', bbox=dict(facecolor='white', edgecolor=line[0].get_color()))
 
-        v_fig.legend(loc=9, ncols=5, fontsize=l_size)
+
         
 #%% How to plot horizontal rebar
-def plot_horizontals(h_data, h_fig, l_size=10, f_size=12):
+def plot_horizontals(h_data, h_fig,  f_size=12):
     panel_geom(h_data, h_fig)
     
     # Plot Vertical and Horizontal Rebar
@@ -190,7 +190,6 @@ def plot_horizontals(h_data, h_fig, l_size=10, f_size=12):
                 h_fig.annotate('',xy=(mean([x1,x2]), y1), xytext=(mean([x1,x2]), y2), arrowprops=dict(color=line[0].get_color(),arrowstyle='|-|'))
                 h_fig.annotate(line[0].get_label().replace('@','\n@'), xy=(mean([x1,x2]), y), fontsize = f_size, ha='center', va='center', bbox=dict(facecolor='white', edgecolor=line[0].get_color()))
 
-        h_fig.legend(loc=9, ncols=5, fontsize=l_size)
 #%% File uploader, that accepts only tup files. Other files can be uploaded but only the tup files will be accepted.
 accepted_ftype = ['tup']
 st.title("Folder Upload System")
@@ -277,13 +276,25 @@ if uploaded_files:
         hp = -yp + float(row['ParapetHeight']) + float(row['PanelHeight'])
         panel_out = Rectangle((xp,yp), wp, hp, edgecolor = 'black', fill=False, lw=5)
         # Place the legend between the title and the plot
-        verts.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05), ncol=2, fancybox=True, shadow=True)
+        legend_params = {
+            'loc': 'upper center',
+            'bbox_to_anchor': (0.5, 1.05),
+            'ncol': 2,
+            'fancybox': True,
+            'shadow': True
+        }
+        verts.legend(**legend_params)
+        horzs.legend(**legend_params)
+
+        # verts.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05), ncol=4, fancybox=True, shadow=True)
+        # horzs.legend(loc=9, ncols=4, fontsize=10)
+
         tx = panel_out.get_x() + panel_out.get_width()
         ty = panel_out.get_y() + panel_out.get_height()
         fig.suptitle(f"{row['PanelType']}, {row['Tfc']}", fontsize=24)
         verts.set_title(f"Vertical Rebar (L={tx} ft, T/wall={ty} ft)", fontsize=14)
         horzs.set_title("Horizontal Rebar", fontsize=14)
-        plt.tight_layout()
+        # plt.tight_layout()
         st.pyplot(fig)
 
     
