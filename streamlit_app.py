@@ -278,7 +278,7 @@ if uploaded_files:
         # Place the legend between the title and the plot
         legend_params = {
             'loc': 9,
-            'bbox_to_anchor': (0.5, 1.05),
+            'bbox_to_anchor': (0.5, 1.5),
             'ncol': 4,
             'fancybox': True,
             'shadow': True,
